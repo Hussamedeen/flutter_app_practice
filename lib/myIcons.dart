@@ -21,6 +21,7 @@ class _MyIcons extends State<MyIcons> {
   Widget build(BuildContext context) {
     return Expanded(
         child: FloatingActionButton(
+          heroTag: "iconBar",
       backgroundColor: widget.color,
       mini: widget.mini,
       onPressed: onPressedButton,

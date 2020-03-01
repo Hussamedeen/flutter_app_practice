@@ -47,7 +47,7 @@ class PhotoCard extends StatelessWidget {
             children: <Widget>[
               Container(
                 alignment: Alignment(-0.9, 1.25),
-                child: FavButton(),
+                child: FavButton("card"),
               ),
               Column(
                 textDirection: TextDirection.rtl,

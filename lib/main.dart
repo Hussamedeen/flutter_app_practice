@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'Cupertino_tab_Bar.dart';
+import 'login.dart';
 
 void main() => runApp(MyApp());
 
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: cupertino_tap_bar(),
+      home: Login(),
     );
   }
 }

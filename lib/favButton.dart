@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 class FavButton extends StatefulWidget{
+  String tag;
+
+  FavButton(this.tag);
+
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -29,6 +33,7 @@ class _FavButton extends State <FavButton> with AutomaticKeepAliveClientMixin{
   Widget build(BuildContext context) {
     // TODO: implement build
     return FloatingActionButton (
+      heroTag: widget.tag,
       backgroundColor: Color(0xFF16DB58),
       mini: true,
       tooltip: "Fav",

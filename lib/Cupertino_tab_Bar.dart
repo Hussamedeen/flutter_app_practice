@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_practice/profile.dart';
+import 'package:flutter_app_practice/testPage.dart';
 
 import 'home.dart';
 
-class cupertino_tap_bar extends StatelessWidget {
+class CupertinoTapBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +26,10 @@ class cupertino_tap_bar extends StatelessWidget {
                   icon: Icon(Icons.person, color: Colors.indigo),
                   title: Text("Profile")
               ),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.texture, color: Colors.indigo),
+                  title: Text("Test")
+              ),
             ]
         ),
 
@@ -44,10 +49,12 @@ class cupertino_tap_bar extends StatelessWidget {
               return CupertinoTabView(
                 builder: (BuildContext context) => Profile(),
               );
+            case 3:
+              return CupertinoTabView(
+                builder: (BuildContext context) => TestPage(),
+              );
               break;
-
           }
-
         },
       ),
     );

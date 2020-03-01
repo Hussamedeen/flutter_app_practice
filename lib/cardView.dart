@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_practice/favButton.dart';
 class CardView extends StatelessWidget {
   String imgBath;
-  CardView(this.imgBath);
+  String tag;
+  CardView(this.imgBath,this.tag);
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -33,7 +34,7 @@ class CardView extends StatelessWidget {
             ],
           ),
         ),
-        FavButton(),
+        FavButton(tag),
       ],
 
     );

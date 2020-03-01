@@ -10,13 +10,13 @@ class ListCardView extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         children: <Widget>[
 
-          CardView("images/aka.jpg"),
-          CardView("images/gaza.jpg"),
-          CardView("images/haifa.jpg"),
-          CardView("images/ramallah.jpg"),
-          CardView("images/tabaria.jpg"),
-          CardView("images/yafa.jpg"),
-          CardView("images/quds.jpg"),
+          CardView("images/aka.jpg","21"),
+          CardView("images/gaza.jpg","22"),
+          CardView("images/haifa.jpg","23"),
+          CardView("images/ramallah.jpg","24"),
+          CardView("images/tabaria.jpg","25"),
+          CardView("images/yafa.jpg","26"),
+          CardView("images/quds.jpg","27"),
         ],
       ),
     );

@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_practice/colorOfHead.dart';
+import 'package:flutter_app_practice/home.dart';
 import 'package:flutter_app_practice/photoCardList.dart';
 import 'package:flutter_app_practice/signInWithGoogle.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -90,6 +92,24 @@ class Profile extends StatelessWidget {
                           fontSize: 14,
                         ),
                       ),
+                    ),
+                    RaisedButton(
+                        onPressed: () {
+                        signOutGoogle();
+                        Navigator.of(context).pushAndRemoveUntil(
+                            MaterialPageRoute(builder: (context) {
+                          return CupertinoTabBar();
+                        }), ModalRoute.withName('/'));
+                      },
+                      color: Colors.green,
+                      child: Text(
+                        'تسجيل خروج',
+                        style: TextStyle(fontSize: 25, color: Colors.white),
+                      ),
+                      elevation: 5,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(40)),
+
                     ),
                   ],
                 ),
