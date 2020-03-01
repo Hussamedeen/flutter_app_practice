@@ -8,6 +8,8 @@ final GoogleSignIn googleSignIn = GoogleSignIn();
 String name;
 String email;
 String imageUrl;
+String userid;
+
 
 Future<String> signInWithGoogle() async {
 
@@ -27,6 +29,8 @@ Future<String> signInWithGoogle() async {
   name = user.displayName;
   email = user.email;
   imageUrl = user.photoUrl;
+  userid = user.uid;
+
 
 
   assert(!user.isAnonymous);

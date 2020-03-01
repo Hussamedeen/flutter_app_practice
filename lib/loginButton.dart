@@ -5,7 +5,9 @@ import 'package:flutter_app_practice/signInWithGoogle.dart';
 import 'package:flutter_auth_buttons/flutter_auth_buttons.dart';
 
 import 'Cupertino_tab_Bar.dart';
+import 'firestore/fire_store_api.dart';
 import 'home.dart';
+import 'model/users.dart';
 
 class LoginButton extends StatelessWidget {
   @override
@@ -14,6 +16,8 @@ class LoginButton extends StatelessWidget {
       child: GoogleSignInButton(
         onPressed: (){
       signInWithGoogle().whenComplete(() {
+       Users user = Users(name,email,imageUrl,userid,DateTime.now().toString());
+       CloudFirestoreAPI().updateUserData(user);
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) {
