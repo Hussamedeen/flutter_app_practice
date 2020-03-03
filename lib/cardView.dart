@@ -20,10 +20,10 @@ class CardView extends StatelessWidget {
           ),
           decoration: BoxDecoration(
             shape: BoxShape.rectangle,
-            image: DecorationImage(
-              image: AssetImage(imgBath),
-              fit: BoxFit.cover,
-            ),
+//            image: DecorationImage(
+//              image: AssetImage(imgBath),
+//              fit: BoxFit.cover,
+//            ),
             borderRadius: BorderRadius.all(Radius.circular(30)),
             boxShadow: <BoxShadow> [
               BoxShadow(

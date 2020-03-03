@@ -8,6 +8,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 import 'colorOfProfile.dart';
 import 'iconsBar.dart';
+import 'main.dart';
 
 class Profile extends StatelessWidget {
 //  String imgProfile;
@@ -95,10 +96,10 @@ class Profile extends StatelessWidget {
                     ),
                     RaisedButton(
                         onPressed: () {
-                        signOutGoogle();
-                        Navigator.of(context).pushAndRemoveUntil(
-                            MaterialPageRoute(builder: (context) {
-                          return CupertinoTabBar();
+                                                  signOutGoogle();
+                       Navigator.of(context).pushAndRemoveUntil(
+                         MaterialPageRoute(builder: (context) {
+                      return MyApp();
                         }), ModalRoute.withName('/'));
                       },
                       color: Colors.green,

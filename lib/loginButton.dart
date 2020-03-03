@@ -7,6 +7,7 @@ import 'package:flutter_auth_buttons/flutter_auth_buttons.dart';
 import 'Cupertino_tab_Bar.dart';
 import 'firestore/fire_store_api.dart';
 import 'home.dart';
+import 'main.dart';
 import 'model/users.dart';
 
 class LoginButton extends StatelessWidget {

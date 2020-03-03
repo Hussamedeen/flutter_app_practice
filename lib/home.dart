@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_practice/colorOfHead.dart';
 import 'package:flutter_app_practice/description.dart';
@@ -10,35 +11,36 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       body: Stack(
-        textDirection: TextDirection.rtl,
+       // textDirection: TextDirection.rtl,
         children: <Widget>[
-          ListView(
-            children: <Widget>[
-              Description("المسجد الأقصى",
-                  "المسجد الأقصى أحد أكبر مساجد العالم وأحد المساجد الثلاثة التي يشد المسلمون الرحال إليها، وهو أيضًا أول القبلتين في الإسلام. يقع داخل البلدة القديمة بالقدس في فلسطين. وهو كامل المنطقة المحاطة بالسور واسم لكل ما هو داخل سور المسجد الأقصى الواقع في أقصى الزاوية الجنوبية الشرقية من البلدة القديمة المسورة"),
-              Review("images/Ahmed.jpg",
-                  "المهندس / أحمد حمدان",
-                  "مراجعة (1) صور (5) ",
-                  "القدس عاصمة دولة فلسطين"
-              ),
-              Review("images/hussamedeen.jpg",
-                  "المستشار / حسام الدين محيسن",
-                  "مراجعة (1) صور (3) ",
-                  "القدس عربية إسلامية وستعود إن شاء الله"
-              ),
-              Review("images/ahmedhaya.jpg",
-                  "المدرب / أحمد أبو حية",
-                  "مراجعة (1) صور (5) ",
-                  "إشتياقي لكِ يا قدس يزداد يوم بعد يوم"
-              ),
-              Review("images/hussam.jpg",
-                  "المستشار / حسام الدين محيسن",
-                  "مراجعة (1) صور (6) ",
-                  "القدس عاصمة دولة فلسطين وستعود قريبا إن شاء الله"
-              ),
-            ],
-          ),
+//          ListView(
+//            children: <Widget>[
+//              Description("المسجد الأقصى",
+//                  "المسجد الأقصى أحد أكبر مساجد العالم وأحد المساجد الثلاثة التي يشد المسلمون الرحال إليها، وهو أيضًا أول القبلتين في الإسلام. يقع داخل البلدة القديمة بالقدس في فلسطين. وهو كامل المنطقة المحاطة بالسور واسم لكل ما هو داخل سور المسجد الأقصى الواقع في أقصى الزاوية الجنوبية الشرقية من البلدة القديمة المسورة"),
+//              Review("images/Ahmed.jpg",
+//                  "المهندس / أحمد حمدان",
+//                  "مراجعة (1) صور (5) ",
+//                  "القدس عاصمة دولة فلسطين"
+//              ),
+//              Review("images/hussamedeen.jpg",
+//                  "المستشار / حسام الدين محيسن",
+//                  "مراجعة (1) صور (3) ",
+//                  "القدس عربية إسلامية وستعود إن شاء الله"
+//              ),
+//              Review("images/ahmedhaya.jpg",
+//                  "المدرب / أحمد أبو حية",
+//                  "مراجعة (1) صور (5) ",
+//                  "إشتياقي لكِ يا قدس يزداد يوم بعد يوم"
+//              ),
+//              Review("images/hussam.jpg",
+//                  "المستشار / حسام الدين محيسن",
+//                  "مراجعة (1) صور (6) ",
+//                  "القدس عاصمة دولة فلسطين وستعود قريبا إن شاء الله"
+//              ),
+//            ],
+//          ),
           Stack(
             textDirection: TextDirection.rtl,
             children: <Widget>[
@@ -67,14 +69,39 @@ class Home extends StatelessWidget {
               ],
             ),
             ListCardView(),
-              Container(
-                  child:
-                  LoginButton()
-              ),
+//              Container(
+//                  child:
+//                 // LoginButton()
+//              ),
 
 
           ],
           ),
+          Container(
+            width: 300,
+            margin: EdgeInsets.only(top:350,),
+            child: StreamBuilder(
+              stream: Firestore.instance.collection("Review").snapshots(),
+              builder: (BuildContext context,AsyncSnapshot<QuerySnapshot> snapshot){
+                if(!snapshot.hasData) return Text("lodding");
+                return ListView(
+                  children:snapshot.data.documents.map((document){
+                    return ListTile(
+                      title: Text(document['nameuser']),
+                      subtitle: Text(document['textreview']),
+                      leading: CircleAvatar(
+                        backgroundImage: NetworkImage(
+                            document['userphoto']
+                        ),
+                      ),
+                    );
+                  }
+                  ).toList(),
+                );
+              },
+            ),
+          ),
+
 
         ],
       ),

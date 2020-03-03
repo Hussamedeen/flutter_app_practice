@@ -20,5 +20,17 @@ class CloudFirestoreAPI {
     }, merge: true);
 
   }
+  Future<void> deleteUser(String uid){
+    return _db.collection(USERS).document(uid).delete();
+
+  }
+  void getData() {
+    _db
+        .collection(USERS)
+        .getDocuments().then((QuerySnapshot snapshot) {
+      snapshot.documents.forEach((f) => print('${f.data}}'));
+
+    });
+  }
 }
 
