@@ -95,11 +95,11 @@ class Profile extends StatelessWidget {
                       ),
                     ),
                     RaisedButton(
-                        onPressed: () {
-                                                  signOutGoogle();
-                       Navigator.of(context).pushAndRemoveUntil(
-                         MaterialPageRoute(builder: (context) {
-                      return MyApp();
+                      onPressed: () {
+                        signOutGoogle();
+                        Navigator.of(context).pushAndRemoveUntil(
+                            MaterialPageRoute(builder: (context) {
+                          return MyApp();
                         }), ModalRoute.withName('/'));
                       },
                       color: Colors.green,
@@ -110,7 +110,6 @@ class Profile extends StatelessWidget {
                       elevation: 5,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(40)),
-
                     ),
                   ],
                 ),

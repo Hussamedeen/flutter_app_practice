@@ -4,7 +4,6 @@ import 'package:flutter_app_practice/colorOfHead.dart';
 import 'package:flutter_app_practice/description.dart';
 import 'package:flutter_app_practice/listCardView.dart';
 import 'package:flutter_app_practice/reviews.dart';
-
 import 'loginButton.dart';
 
 class Home extends StatelessWidget {
@@ -15,10 +14,12 @@ class Home extends StatelessWidget {
       body: Stack(
        // textDirection: TextDirection.rtl,
         children: <Widget>[
-//          ListView(
-//            children: <Widget>[
-//              Description("المسجد الأقصى",
-//                  "المسجد الأقصى أحد أكبر مساجد العالم وأحد المساجد الثلاثة التي يشد المسلمون الرحال إليها، وهو أيضًا أول القبلتين في الإسلام. يقع داخل البلدة القديمة بالقدس في فلسطين. وهو كامل المنطقة المحاطة بالسور واسم لكل ما هو داخل سور المسجد الأقصى الواقع في أقصى الزاوية الجنوبية الشرقية من البلدة القديمة المسورة"),
+          ListView(
+            children: <Widget>[
+
+
+              Description("المسجد الأقصى",
+                  "المسجد الأقصى أحد أكبر مساجد العالم وأحد المساجد الثلاثة التي يشد المسلمون الرحال إليها، وهو أيضًا أول القبلتين في الإسلام. يقع داخل البلدة القديمة بالقدس في فلسطين. وهو كامل المنطقة المحاطة بالسور واسم لكل ما هو داخل سور المسجد الأقصى الواقع في أقصى الزاوية الجنوبية الشرقية من البلدة القديمة المسورة"),
 //              Review("images/Ahmed.jpg",
 //                  "المهندس / أحمد حمدان",
 //                  "مراجعة (1) صور (5) ",
@@ -39,8 +40,10 @@ class Home extends StatelessWidget {
 //                  "مراجعة (1) صور (6) ",
 //                  "القدس عاصمة دولة فلسطين وستعود قريبا إن شاء الله"
 //              ),
-//            ],
-//          ),
+
+
+            ],
+          ),
           Stack(
             textDirection: TextDirection.rtl,
             children: <Widget>[
@@ -73,13 +76,11 @@ class Home extends StatelessWidget {
 //                  child:
 //                 // LoginButton()
 //              ),
-
-
           ],
           ),
           Container(
             width: 300,
-            margin: EdgeInsets.only(top:350,),
+            margin: EdgeInsets.only(top:600,),
             child: StreamBuilder(
               stream: Firestore.instance.collection("Review").snapshots(),
               builder: (BuildContext context,AsyncSnapshot<QuerySnapshot> snapshot){
@@ -101,8 +102,6 @@ class Home extends StatelessWidget {
               },
             ),
           ),
-
-
         ],
       ),
     );

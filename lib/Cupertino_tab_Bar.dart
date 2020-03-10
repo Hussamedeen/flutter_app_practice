@@ -51,7 +51,7 @@ class CupertinoTapBar extends StatelessWidget {
               );
             case 3:
               return CupertinoTabView(
-                builder: (BuildContext context) => TestPage(),
+                builder: (BuildContext context) => AddPlaceScreen(),
               );
               break;
           }
